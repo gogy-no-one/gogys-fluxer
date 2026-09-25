@@ -1,0 +1,61 @@
+{
+  "name": "gogys-fluxer-beta",
+  "version": "2.0.1",
+  "description": "Unofficial desktop wrapper for a Fluxer server. Loads the current web build, keeps logins per account, updates itself.",
+  "author": "gogy",
+  "license": "GPL-3.0-or-later",
+  "homepage": "https://github.com/gogy-no-one/gogys-fluxer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gogy-no-one/gogys-fluxer.git"
+  },
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "node test/connections.test.cjs && node test/button.test.cjs",
+    "build:linux": "electron-builder --linux appimage --publish=never",
+    "build:win": "electron-builder --win nsis --publish=never",
+    "dist": "electron-builder --linux appimage --win nsis --publish=never"
+  },
+  "build": {
+    "appId": "app.fluxer.desktop",
+    "productName": "gogys-fluxer-beta",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "web-ui.js",
+      "connections-preload.js",
+      "package.json",
+      "node_modules"
+    ],
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "https://github.com/gogy-no-one/gogys-fluxer/releases/latest/download"
+      }
+    ],
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "category": "Network"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "artifactName": "${productName}-Setup-${version}.${ext}"
+    }
+  },
+  "devDependencies": {
+    "electron": "^44.1.1",
+    "electron-builder": "^24.13.0"
+  },
+  "dependencies": {
+    "electron-updater": "^6.8.9"
+  }
+}
