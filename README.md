@@ -1,3 +1,6 @@
+this is vibe coded all of it lol =)
+
+
 > **This is an unofficial, personal project and it may very well not be maintained.**
 > There is no guarantee of updates, fixes, or that it will keep working when the
 > Fluxer web app changes. Use it at your own risk. If it breaks and nobody is
